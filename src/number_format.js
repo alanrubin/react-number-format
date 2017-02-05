@@ -190,6 +190,11 @@ class NumberFormat extends React.Component {
     const {formattedValue,value} = this.formatInput(inputValue);
     let cursorPos = this.refs.input.selectionStart;
 
+    // Reject entry if needed
+    if(this.props.reject && this.props.reject(formattedValue, value)) {
+      return
+    }
+
     //change the state
     this.setState({value : formattedValue},()=>{
       cursorPos = this.getCursorPosition(inputValue, formattedValue, cursorPos );
