@@ -19,7 +19,8 @@ const propTypes = {
   value: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string
-  ])
+  ]),
+  rejectChange: PropTypes.func
 };
 
 const defaultProps = {
@@ -191,7 +192,7 @@ class NumberFormat extends React.Component {
     let cursorPos = this.refs.input.selectionStart;
 
     // Reject entry if needed
-    if(this.props.reject && this.props.reject(formattedValue, value)) {
+    if(this.props.rejectChange && this.props.rejectChange(formattedValue, value)) {
       return
     }
 
