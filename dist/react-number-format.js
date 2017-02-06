@@ -97,7 +97,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  suffix: _react.PropTypes.string,
 	  format: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.func]),
 	  mask: _react.PropTypes.string,
-	  value: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string])
+	  value: _react.PropTypes.oneOfType([_react.PropTypes.number, _react.PropTypes.string]),
+	  rejectChange: _react.PropTypes.func
 	};
 
 	var defaultProps = {
@@ -304,7 +305,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var cursorPos = this.refs.input.selectionStart;
 
 	      // Reject entry if needed
-	      if (this.props.reject && this.props.reject(formattedValue, value)) {
+	      if (this.props.rejectChange && this.props.rejectChange(formattedValue, value)) {
 	        return;
 	      }
 
