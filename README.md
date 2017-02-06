@@ -26,6 +26,7 @@ Or get compiled development and production version from ./dist
 | format | String : Hash based ex (#### #### #### ####) <br/> Or Function| none | If format given as hash string allow number input inplace of hash. If format given as function, component calls the function with unformatted number and expects formatted number.
 | mask | String (ex : _) | none | If mask defined, component will show non entered placed with masked value.  
 | onChange | (e, value) => {} | none | onChange handler accepts event object through which you can get formattedValue (e.targe.value # $2,223)  and second parameter non formatted value (ie: 2223)
+| rejectChange | (formattedValue, value) => boolean | none | A function specifying if the value entered in the input should be rejected. If the value is rejected then the input remains unchanged. That is useful for example if you want to set a maximum value for the input and not allow users to enter a value higher then it.
 
 Other than this it accepts all the props which can be given to a input or span based on displayType you selected.
 
